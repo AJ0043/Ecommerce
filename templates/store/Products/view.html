@@ -1,0 +1,409 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{% static 'js/alertify.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/alertify.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/themes/default.min.css' %}"/>
+
+<div class="container" style="height: auto; width: 100%;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow product_data" style="margin-top: 70px; border: groove; border-color: darkgoldenrod; border-width: 4px; background-color: black;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            {% if product.Tag %}
+                                <label class="product-view-tag" style="font-size: 16px; font-weight: bold; border-radius: 2px; padding: 2px; text-align: center; background-color: green; color: white; margin-top: 10px; font-weight: 800; font-family: 'Times New Roman', Times, serif; width: 70px;color:darkgoldenrod">{{ product.Tag }}</label>
+                            {% endif %}
+                            <img src="{{ product.Product_image.url }}" class="w-100 main-image" alt="image" style="border-color: #ccc; border-radius: 0px; width: 100%; height: auto; margin-top: 10px;">
+                            {% for image in product.Product.all %}
+                                <a href="#" class="thumbnail-link" data-image-url="{{ image.image.url }}" style="margin-left: 10px;">
+                                    <img src="{{ image.image.url }}" class="thumbnail-image shadow" width="70" height="70" alt="image" style="border-style: ridge; border-width: 2px; border-color: rgb(34, 0, 158); margin-top: 10px; border-radius: 5px;">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="mb-0" style="font-family: 'Times New Roman', Times, serif;color:darkgoldenrod">
+                                {{ product.name }}
+                                {% if product.trending %}
+                                    <label class="float-end badge bg-primary trending_tag" style="font-size: 16px; margin-top: 10px; border-radius: 2px; width: 100px; background-color:darkgoldenrod;">Trending</label>
+                                {% endif %}
+                            </h2>
+                            <hr>
+                            <label class="me-3 fw-bold" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;color: darkgoldenrod;">Original Rs.<s style="color:Crimson;">{{ product.Orignal_Price|stringformat:'d' }}</s></label>
+                            <label class="fw-bold" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;color:Green">Selling Rs.{{ product.Selling_Price|stringformat:'d' }}</label>
+                            <p class="mt-3" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;color: darkgoldenrod;">{{ product.Small_description }}</p>
+                            <p class="me-3 fw-bold" style="font-size: 23px; font-family: 'Times New Roman', Times, serif;color:darkgoldenrod">{{ product.Size }}</p>
+                            <hr>
+                            {% if product.quantity > 0 %}
+                                <label class="badge bg-success">In Stock</label>
+                            {% else %}
+                                <label class="badge bg-danger">Out of Stock</label>
+                            {% endif %}
+                            <div class="col-md-3">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ product.id }}" class="prod_id">
+                                <label for="Quantity" style="font-family: 'Times New Roman', Times, serif; font-size: 25px;color:darkgoldenrod">Quantity</label>
+                                <div class="input-group text-center mb-3" style="width: 150px;">
+                                    <button id="dec-btn" onclick="dec()" class="input-group-text-decrement-btn" style="border-radius: 5px; background-color: lightgray; width: 35px; font-size: 25px; text-align: center; color: black; font-family: Serif;background-color: darkgoldenrod;">-</button>
+                                    <input id="q-item" type="text" name="Quantity" class="form-control qty-input text-center shadow" value="1" style="border-radius: 2px; width: 50px;background-color: black;color: #fff;">
+                                    <button id="inc-btn" onclick="inc()" class="input-group-text-Increment-btn" style="border-radius: 5px; background-color: lightgray; width: 35px; font-size: 25px; color: black; font-family: Serif;background-color: darkgoldenrod;">+</button>
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <button type="button" class="btn btn-primary me-3 float-start addToCartBtn" style="font-size: 16px; border: black; font-family: serif; font-weight: 800; color: white; margin-top: 50px; margin-left: 200px; width: 150px; height: 40px;">Add to Cart <i class="fa fa-shopping-cart" style="font-size: 20px; color: black;"></i></button>
+                                    <button type="button" class="btn btn-success me-3 float-start addToWishlistBtn" style="font-size: 15px; border: black; font-family: serif; font-weight: 800; color: white; margin-top: -40px; margin-left: 20px; width: 150px; height: 40px;">Add to Wishlist <i class="fa fa-heart" style="font-size: 20px; color: red;"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <h3 style="margin-left: 10px; margin-top: 50px; border-radius: 7px; color: black; width: 200px; text-align: center; font-family: 'Times New Roman', Times, serif; background-color: darkgoldenrod; color: #fff;">Description</h3>
+                    <p class="mt-0" style="margin-left: 50px; font-family: 'Times New Roman', Times, serif; font-size: 20px;color: darkgoldenrod;">{{ product.description }}</p>
+                    <p class="mt-0" style="margin-left: 50px; font-family: 'Times New Roman', Times, serif; font-size: 20px;color: darkgoldenrod;">{{ product.description2 }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* General adjustments for mobile devices */
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 15px;
+        }
+        .card {
+            height: auto;
+            margin-top: 20px;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+        }
+        .thumbnail-image {
+            width: 60px;
+            height: 60px;
+        }
+        .product-view-tag,
+        .trending_tag {
+            font-size: 14px;
+            width: auto;
+        }
+        .fw-bold {
+            font-size: 16px;
+        }
+        .btn {
+            width: 100px;
+            height: 35px;
+            font-size: 14px;
+        }
+        .qty-input {
+            width: 50px;
+        }
+        .input-group-text-decrement-btn, .input-group-text-Increment-btn {
+            font-size: 20px;
+        }
+    }
+
+    /* Adjustments for very small screens */
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 10px;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+        }
+        .thumbnail-image {
+            width: 45px;
+            height: 45px;
+        }
+        .product-view-tag,
+        .trending_tag {
+            font-size: 12px;
+        }
+        .fw-bold {
+            font-size: 14px;
+        }
+        .btn {
+            width: 80px;
+            height: 30px;
+            font-size: 12px;
+        }
+        .qty-input {
+            width: 40px;
+        }
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        // Add to Cart
+        $('.addToCartBtn').click(function (e) {
+            e.preventDefault();
+
+            var product_id = $(this).closest('.product_data').find('.prod_id').val();
+            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+            var token = $('input[name=csrfmiddlewaretoken]').val();
+
+            $.ajax({
+                type: "POST",
+                url: "{% url 'addtocart' %}",
+                data: {   
+                    'product_id': product_id,
+                    'product_qty': product_qty,
+                    'csrfmiddlewaretoken': token
+                },
+                success: function (response) {
+                    console.log(response);
+                    alertify.success(response.status);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error: " + status + " " + error);
+                    console.error(xhr.responseText);
+                    alertify.error("An error occurred: " + xhr.responseText);
+                }
+            });
+        });
+
+        // Add to Wishlist
+        $('.addToWishlistBtn').click(function (e) {
+            e.preventDefault();
+
+            var product_id = $(this).closest('.product_data').find('.prod_id').val();
+            var token = $('input[name=csrfmiddlewaretoken]').val();
+
+            $.ajax({
+                type: "POST",
+                url: "{% url 'addtoWishlist' %}",
+                data: {
+                    'product_id': product_id,
+                    'csrfmiddlewaretoken': token
+                },
+                success: function (response) {
+                    console.log(response);
+                    alertify.success(response.status);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error: " + status + " " + error);
+                    console.error(xhr.responseText);
+                    alertify.error("An error occurred: " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Electronics</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Home Appliances</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Kitchenware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags Suitcase</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>
+
+{% endblock content %}

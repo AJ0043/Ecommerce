@@ -1,0 +1,131 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="margin-top: 50px;">
+            <h1 class="text-center font-weight-bold" style="font-family: 'Times New Roman', Times, serif; margin-top: 130px;">New Arrival</h1>
+            <div class="row justify-content-center px-4 py-5 ">
+                {% for item in Arrival %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-4 d-flex justify-content-center" style="padding:30px;">
+                    <div class="card shadow-sm" style="width: 140%; max-width: 550px; user-select: none; border: ridge;  border-width: 2px; padding: 10px; background-color:;box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;">
+                        <a class="text-decoration-none" href="{% url 'collectionsview' item.slug %}">
+                            <div class="card-body p-0">
+                                <div class="Arrival-image">
+                                    <img src="{{ item.image.url }}" alt="Arrival image" class="w-100" style="height: 180px; object-fit: cover;" />
+                                </div>
+                                <p class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 25px; color: darkgoldenrod; margin: 15px 0;">{{ item.name }}</p>
+                                <span class="float-start" style="margin-left: 10px; font-family: 'Times New Roman', Times, serif;">MRP. {{ item.MRP|stringformat:'d' }}</span>
+                                <span class="float-end" style="margin-left: 10px; font-family: 'Times New Roman', Times, serif;">SP. {{ item.SP|stringformat:'d' }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.Arrival-image img {
+    width: 80%;
+    height: 200px;
+    object-fit: cover;
+    padding: 10px;
+    z-index: 1000;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+    width: 0px;
+}
+</style>
+
+{% block content %}
+<!-- Your content goes here -->
+{% endblock %}
+
+<div id="bannerCarousel" class="carousel slide Banner66" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container d-flex justify-content-center">
+                <img src="{% static 'Images/IFB8.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Cr99.webp' %}" alt="Banner Image">
+                <img src="{% static 'Images/Ka.webp' %}" alt="Banner Image">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container d-flex justify-content-center">
+                <img src="{% static 'Images/Na.jpeg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Sa.webp' %}" alt="Banner Image">
+                <img src="{% static 'Images/ame.webp' %}" alt="Banner Image">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container d-flex justify-content-center">
+                  <img src="{% static 'Images/Kit.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/%door.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Am.avif' %}" alt="Banner Image">
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<style>
+.Banner66 img {
+    flex: 1 1 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    user-select: none;
+    margin-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.Banner66 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 100px;
+}
+
+@media (max-width: 1200px) {
+    .Banner66 img {
+        flex: 1 1 calc(50% - 20px);
+        max-width: 300px;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Banner66 img {
+        flex: 1 1 calc(100% - 20px);
+        max-width: 50%;
+        margin-left: 0;
+    }
+
+    .Banner66 {
+        margin-top: 100px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 412px) {
+    .Banner66 img {
+        max-width: 30%;
+    }
+}
+</style>

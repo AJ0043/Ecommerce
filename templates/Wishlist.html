@@ -1,0 +1,283 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card shadow product_data" style="border-radius: 2px; font-size: 25px; font-weight: bold; font-family: 'Times New Roman', Times, serif; background-color: black;">
+                    <div class="card-body cartdata">
+                        {% if wishlist %}
+                            {% for item in wishlist %}
+                                <div class="row align-items-center justify-content-center mb-3 text-center" data-product-id="{{ item.product_id }}">
+                                    <div class="col-md-2 my-auto">
+                                        <img src="{{ item.product.Product_image.url }}" height="130px" width="130px" style="user-select: none;border-radius:100px;box-shadow: 8px 8px 2px darkgoldenrod;">
+                                    </div>
+                                    <div class="col-md-3 my-auto">
+                                        <h6 style="font-size: 25px; font-family: 'Times New Roman', Times, serif;color: darkgoldenrod;">{{ item.product.name }}</h6>
+                                    </div>
+                                    <div class="col-md-2 my-auto">
+                                        <h6 style="font-size: 25px;color: darkgoldenrod;">Rs.{{ item.product.Selling_Price|stringformat:'d' }}</h6>
+                                    </div>
+                                    <div class="col-md-2 my-auto">
+                                        <a href="{% url 'productview' item.product.category.slug item.product.slug %}" style="font-size: 18px; margin-top: 10px; background-color: Crimson; border-color: Crimson;" class="btn btn-danger delete-cart-item"><i class="fa-solid fa-eye"></i> View order</a>
+                                    </div>
+                                    <div class="col-md-2 my-auto">
+                                        <button style="font-size: 18px; margin-top: 10px;" class="btn btn-warning delete-list-item"><i class="fa fa-trash"></i> Remove</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-center"style="color:goldenrod">Your wishlist is empty.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$('.delete-list-item').click(function (e) { 
+    e.preventDefault();
+    
+    var product_id = $(this).closest('.row').data('product-id');
+    var token = $('input[name=csrfmiddlewaretoken]').val();
+
+    $.ajax({
+        method: "POST",
+        url: "{% url 'delete_list_item' %}",
+        data: {
+            'product_id': product_id,
+            'csrfmiddlewaretoken': token
+        },
+        success: function (response) {
+            alertify.success(response.status);
+            $('.cartdata').load(location.href + " .cartdata");  
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Electronics</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Home Appliances</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Kitchenware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags Suitcase</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>
+{% endblock content %}

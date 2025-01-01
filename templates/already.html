@@ -1,0 +1,90 @@
+{% load static %}
+<div class="Password">
+    <img class="face" src="{% static 'Images/hand.gif' %}">
+    <h2><span class="typing">You already login...</span></h2>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        background-color: white;
+    }
+
+    .Password {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .face {
+        width: 80%;
+        max-width: 400px;
+        height: 300px;
+        user-select: none;
+    }
+
+    h2 {
+        margin: 20px 0 0;
+        font-size: 5vw;
+        width: 100%;
+        font-family: Satisfy;
+        user-select: none;
+        color: green;
+    }
+
+    .typing {
+        display: inline-block;
+        overflow: hidden;
+        font-size: 3vw;
+        white-space: nowrap;
+        border-right: 3px solid;
+        animation: typing 4s steps(20), blink-caret 0.75s step-end infinite;
+    }
+
+    form {
+        width: 400px;
+        height: 200px;
+        position: absolute;
+        margin-top: 700px;
+    }
+
+    input {
+        width: 200px;
+        height: 50px;
+        padding: 0px;
+        font-size: 30px;
+        background-color: orange;
+        border-radius: 50px;
+        font-family: Satisfy;
+        color: aliceblue;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: black; }
+    }
+
+    @media (min-width: 600px) {
+        h2 {
+            font-size: 5vw;
+        }
+    }
+</style>

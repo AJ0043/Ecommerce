@@ -1,0 +1,1220 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="Banner44">
+    <div class="Banner44-wrapper">
+        <img src="{% static 'Images/Show.jpg' %}" alt="Banner Image">
+    </div>
+</div>
+
+<style>
+.Banner44 img {
+    width: 100%;
+    height: 780px;
+    margin-left: 0px;
+    margin-top: -4px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    user-select: none
+}
+
+.Banner44-wrapper {
+
+    width: 100%;
+}
+
+@media (max-width: 1900px) {
+    .Banner44 img {
+        width: 100%;
+        height: 750px;
+        margin-left: 0;
+        margin-top: -3;
+    }
+}
+
+@media (max-width: 768px) {
+    .Banner44 img {
+        border-radius: 0;
+        margin-top: -4px;
+        width: 100%;
+        height: 550px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="codepen-wrapper">
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/Customer.png' %}" alt="Banner Image">
+                <p>2500+ Customers</p>
+            </div>
+            <div class="page__2">
+                <p>We have Deal With 2500 more then customers since 15 years</p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/Trust1.png' %}" alt="Banner Image">
+                <p>15 years in the market</p>
+            </div>
+            <div class="page__2">
+                <p>We Have Completed 15 years in the Retail Market With Fully Experiences.</p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/pnge.png' %}" alt="Banner Image">
+                <p>20+ Dealerships</p>
+            </div>
+            <div class="page__2">
+                <p>We have 20+ Delerships in Different Catagories. We have many Choices and products for Update lifestyle  </p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/Service.png' %}" alt="Banner Image">
+                <p>1000+ Customer Services</p>
+            </div>
+            <div class="page__2">
+                <p>We Satisfied 1000+ Customers to Their product Complaints.We are Giving best Services ..</p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/Staff.png' %}" alt="Banner Image">
+                <p>Experiences Staff</p>
+            </div>
+            <div class="page__2">
+                <p>We have Experiences Staff In  our Showroom</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<style>
+    .codepen-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    .book {
+        height: 15rem;
+        width: 15rem;
+        font-size: 1.4rem;
+        box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
+        text-align: center;
+        position: relative;
+        margin: 20px;
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .book:hover {
+        transform: scale(1.05);
+    }
+
+    .page {
+        width: 100%;
+        height: 100%;
+        perspective: 1500px;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        border-radius: 20px;
+    }
+
+    .page__1, .page__2 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+        backface-visibility: hidden;
+        transition: transform 1s ease, box-shadow 0.3s ease;
+    }
+
+    .page__1 {
+        background-color: #0D5C63;
+        color: #fff;
+        z-index: 2;
+    }
+
+    .page__2 {
+        background-color: #ffffff;
+        color: black;
+        padding: 20px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page__1 img {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none;
+    }
+
+    .page:hover .page__1 {
+        transform: rotateY(-180deg);
+    }
+
+    .page:hover .page__2 {
+        transform: rotateY(0deg);
+    }
+
+    @media (max-width: 768px) {
+        .book {
+            height: 12rem;
+            width: 12rem;
+            font-size: 1.2rem;
+            margin: 10px;
+        }
+
+        .page__1 img {
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .book {
+            height: 10rem;
+            width: 10rem;
+            font-size: 1rem;
+            margin: 5px;
+        }
+
+        .page__1 img {
+            width: 50%;
+            height: 50%;
+        }
+
+        .page__2 {
+            padding: 15px 5px;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="WebDev">
+    <div class="imgWrapper ">
+        <img src="{% static 'Images/Swas.jpg' %}">
+    </div>
+
+    <div class="contentWrapper">
+        <div class="content">
+            <h2>Our Firms</h2>
+            <p>Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and more. With a commitment to quality and innovation, we have grown steadily, earning the loyalty of our customers and the respect of our peers. Our journey is a testament to the vision and hard work of our founders, who have built a legacy of excellence and trust.</p>
+            <a href="https://www.facebook.com/p/Swastik-traders-rajakhera-dholpur-100063596390135/?paipv=0&eav=AfYFIioikpGOixmGG6JILI26lZHtT-gzclxNG6j4FthY309gNkQ5TgdyZiJeLKaVRxw&_rdr" style="font-size: 50px;"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=%2B918209435284&context=ARA5IO-vlQm6Lb0jzeHq3vMPvEfsptTkrrU1Icmte0B1qquGPcosuPgKoJk1ujt2-MTyf74yszzSZXr6eB5Tbfw8u6FoXnr_YT496PvOHYXDPT3VXyLXVTbbj-QBsLlAmHqqyXZk1iyYRYwC-BZRWD9kew&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwZXh0bgNhZW0CMTAAAR3reSCz5zSEaZfT13Vma_dVXPK4wmb-qEc1aBL95unWF_zETpvKAN6d5Z8_aem_QxawMD4DYwRyJwin15-3mg" style="font-size: 50px;margin: 40px;"><i class="fa-brands fa-square-whatsapp"></i></a>
+            <a href="#" style="font-size: 50px;margin-left: 10px;"><i class="fa-brands fa-square-instagram"></i></a>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+.WebDev {
+    width: 80%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    overflow-x: hidden;
+    padding: 5rem 0;
+    margin: 0 auto;
+    margin-top: 90px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Ensure text centers in responsive layout */
+}
+
+.imgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapper img {
+    width: 500px;
+    height: 500px;
+    transition: transform 0.3s;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 20px;
+}
+
+.contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+.content {
+    display: block;
+    text-align: center;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Satisfy', cursive;
+    width: 100%; /* Ensure the title is centered */
+    color: hotpink;
+}
+
+.content p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 23px;
+    width: 100%; /* Ensure the text block is centered */
+}
+
+.content a:hover {
+    color: #000;
+    transition: 0.5s ease;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.content a {
+    color: orangered;
+}
+
+@media (max-width: 1058px) {
+    .WebDev {
+        grid-template-columns: 1fr;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+
+    .contentWrapper {
+        order: 2;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .imgWrapper {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .imgWrapper img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .imgWrapper img {
+        max-width: 300px;
+    }
+
+    .content {
+        font-size: 16px;
+    }
+
+    .content a {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .imgWrapper img {
+        max-width: 250px;
+        max-height: 250px;
+        margin-left: -20px;
+    }
+
+    .content h2 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .content a {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="WebDev3">
+    <div class="imgWrapper3">
+        <a href="#"><img src="{% static 'Images/Papa.jpeg' %}"></a>
+    </div>
+
+    <div class="contentWrapper">
+        <div class="content4">
+            <h2>Founder</h2>
+            <p>Founded in 2010 by Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has become a cornerstone of the electronics and furniture industry. The journey of our enterprise is deeply rooted in the extensive experience and visionary leadership of Mr. Yogendra Kumar Jain, who brings over 30 years of experience in the retail business. His journey began in 1991 when he ventured into the hardware submersible business, demonstrating a keen understanding of market dynamics and a commitment to quality and innovation.
+
+                Before embarking on his entrepreneurial path, Mr. Yogendra Kumar Jain honed his skills and gained valuable insights while working in a government office. This diverse background provided him with a unique perspective and a strong foundation in both administrative and operational aspects of business management. His transition from public service to the retail sector was marked by a relentless pursuit of excellence and a deep-seated passion for customer satisfaction.
+                
+                In 2010, recognizing the burgeoning potential in the electronics market, Mr. Yogendra Kumar Jain, alongside his son Lokesh Jain, decided to establish a firm that would offer cutting-edge electronics products to consumers. The father-son duo combined their strengths—Yogendra's vast experience and Lokesh's innovative approach—to create a business that quickly gained a reputation for reliability and superior customer service.</p>
+                <a href="https://www.facebook.com/profile.php?id=100069594031670" style="font-size: 50px;"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" style="font-size: 50px;margin: 40px;"><i class="fa-brands fa-square-whatsapp"></i></a>
+        </div>
+    </div>
+</div>
+
+<style>
+.WebDev3 {
+    width: 100%;
+    max-width: 2110px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    overflow-x: hidden;
+    padding: 5rem 0;
+    margin: 0 auto;
+}
+
+.imgWrapper3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapper3 img {
+    width: 400px;
+    height: 600px;
+    transition: transform 0.3s;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+.content4 {
+    max-width: 800px;
+    color: #000;
+    margin: 0 auto;
+}
+
+.content4 h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Satisfy', cursive;
+    color: red;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.content4 p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 20px;
+    color: #000;
+    margin: 0 auto;
+}
+
+.content4 a {
+    color: orangered;
+}
+
+.content4 a:hover {
+    color: #000;
+    transition: 0.5s ease;
+}
+
+@media (max-width: 1058px) {
+    .WebDev3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .imgWrapper3 img {
+        width: 300px;
+        height: auto;
+    }
+    .contentWrapper {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .imgWrapper3 img {
+        width: 250px;
+    }
+    .content4 h2 {
+        font-size: 28px;
+    }
+    .content4 p {
+        font-size: 15px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="WebDev2">
+    <div class="imgWrapper2 ">
+        <img src="{% static 'Images/Lucky2.jpg' %}">
+    </div>
+
+    <div class="contentWrapper2">
+        <div class="content2">
+            <h2>Our Cofounder</h2>
+            <p>Lokesh Jain, the co-founder of Swastik Electronics and Furniture, has been a driving force behind the company's growth and success. Since its inception in 2010, Lokesh has played a pivotal role in shaping Swastik Electronics and Furniture into a leading name in the industry. His vision and innovative approach have been instrumental in expanding the business from a specialized electronics store to a comprehensive retail destination offering a wide range of products, including high-quality furniture and kitchen appliances.
+            Under Lokesh’s leadership, Swastik Electronics and Furniture has earned a reputation for its commitment to quality, exceptional customer service, and a keen understanding of market trends. His dedication to excellence and continuous pursuit of innovation have set the company apart, ensuring it remains at the forefront of the industry. Lokesh’s entrepreneurial spirit and strategic insights have not only driven the company’s expansion but also solidified its position as a trusted brand among customers.</p>
+            <a href="https://www.facebook.com/lokesh.jain.102361" style="font-size: 50px;"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=%2B918209435284&context=ARA5IO-vlQm6Lb0jzeHq3vMPvEfsptTkrrU1Icmte0B1qquGPcosuPgKoJk1ujt2-MTyf74yszzSZXr6eB5Tbfw8u6FoXnr_YT496PvOHYXDPT3VXyLXVTbbj-QBsLlAmHqqyXZk1iyYRYwC-BZRWD9kew&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwZXh0bgNhZW0CMTAAAR3reSCz5zSEaZfT13Vma_dVXPK4wmb-qEc1aBL95unWF_zETpvKAN6d5Z8_aem_QxawMD4DYwRyJwin15-3mg" style="font-size: 50px; margin: 40px;"><i class="fa-brands fa-square-whatsapp"></i></a>
+            <a href="#" style="font-size: 50px;"><i class="fa-brands fa-square-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<style>
+.WebDev2 {
+    width: 100%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 5rem 0;
+    margin: 0 auto;
+    margin-top: 250px;
+}
+
+.imgWrapper2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapper2 img {
+    width: 400px;
+    height: 400px;
+    transition: transform 0.3s;
+    user-select: none;
+    border-radius: 0px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 20px;
+}
+
+.contentWrapper2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+.content2 {
+    text-align: center;
+}
+
+.content2 h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.content2 p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 20px;
+    max-width: 480px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.content2 a {
+    color: orangered;
+    margin: 0 20px;
+    font-size: 40px;
+}
+
+.content2 a:hover {
+    color: #000;
+    transition: 0.5s ease;
+}
+
+@media (max-width: 1058px) {
+    .WebDev2 {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .content2 p {
+        margin: 0 auto;
+    }
+    .content2 a {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .imgWrapper2 img {
+        max-width: 300px;
+    }
+    .contentWrapper2 {
+        font-size: 14px;
+        width: 150px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .imgWrapper2 img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .content2 h2 {
+        font-size: 28px;
+        margin-left: 250px;
+    }
+    .content2 p {
+        font-size: 16px;
+        align-items: center;
+        width: 300px;
+        margin-left: 300px;
+    }
+    .content2 a{
+        margin-left: 330px;
+        font-size: 20px;
+    }     
+
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="WebDev4">
+    <div class="imgWrapper4">
+        <a href="#"><img src="{% static 'Images/Mummy.jpg' %}" alt="Ratna Jain"></a>
+    </div>
+
+    <div class="contentWrapper">
+        <div class="content5">
+            <h2>Proprietor</h2>
+            <p>Ratna Jain, the proprietor and financial advisor of our firm, plays a crucial role in steering the company towards financial stability and growth. With her sharp financial acumen and strategic foresight, Ratna has been instrumental in managing the firm's financial operations and ensuring its economic health. Her expertise in financial planning and management has been pivotal in making informed decisions that drive the company's success.</p>
+            <p>As the proprietor, Ratna brings a unique perspective to the business, combining her deep understanding of financial markets with a commitment to the firm's long-term vision. Her leadership in financial advisory has helped the company navigate complex economic landscapes, optimize resource allocation, and achieve sustainable growth. Ratna’s dedication and strategic insights have been vital in establishing a robust financial foundation for the firm, enabling it to expand its horizons and continually exceed customer expectations.</p>
+            <div class="socialLinks">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.WebDev4 {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 2rem;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+}
+
+.imgWrapper4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapper4 img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.content5 h2 {
+    font-size: 36px;
+    font-family: 'Satisfy', cursive;
+    color: rgb(10, 120, 194);
+    margin-bottom: 1rem;
+}
+
+.content5 p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 800px;
+}
+
+.socialLinks a {
+    font-size: 40px;
+    color: orangered;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.socialLinks a:hover {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .WebDev4 {
+        grid-template-columns: 1fr;
+    }
+
+    .content5 h2 {
+        font-size: 28px;
+    }
+
+    .content5 p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .socialLinks a {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content5 h2 {
+        font-size: 24px;
+    }
+
+    .content5 p {
+        font-size: 14px;
+
+    }
+
+    .imgWrapper4 img {
+        max-width: 300px;
+    }
+
+    .socialLinks a {
+        font-size: 25px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Electronics</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Home Appliances</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Kitchenware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags Suitcase</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>    
+{% endblock content %}

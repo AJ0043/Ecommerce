@@ -1,0 +1,232 @@
+{% load static %}
+<div class="Banner23">
+    <img src="{% static 'Images/Banner23.webp' %}" alt="Banner Image">
+    <div class="overlay33 shadow"></div>    
+    <p class="thot2">Orpat Embrace the chill with warmth and comfort from Swastik Traders this winter season! From Room Heaters to cozy Handlooms, we have everything you need to stay snug and stylish. Don’t let the cold hold you back—discover our range of winter essentials designed to make your season comfortable and delightful. Visit us today and make this winter your warmest one yet!</p>
+
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Explora&family=Lora:ital,wght@0,400..700;1,400..700&family=Satisfy&display=swap');
+    
+    .Banner23 {
+        position: relative;
+        text-align: center;
+        color: white;
+        margin-top: 100px;
+        
+    }
+
+    .Banner23 img {
+        width: 100%;
+        height: 800px;
+        margin-top: 100px;
+        user-select: none;
+    }
+
+    .overlay33 {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 89%;
+        background-color: rgba(0, 0, 0, 0.7);
+        
+    }
+
+    .thot2, .Click {
+        position: absolute;
+        width: 80%;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        
+    }
+
+    .thot2 {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family:"";
+        font-size: 1.5vw;
+        color:aliceblue;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: rgba(126, 42, 21, 0.7);
+        padding: 20px;
+    }
+
+    .Click {
+        top: 65%;
+        transform: translate(-50%, -50%);
+        font-family:'Times New Roman', Times, serif;
+        font-size: 25px;
+        margin-top: 50px;
+        text-decoration:none;
+        color: antiquewhite;
+        border: ridge;
+        border-radius:30px;
+        width: 250px;
+        padding:10px;
+        background-color: darkgoldenrod;
+        border-width: 1px;
+        
+    }
+    .Click:hover{
+        background-color: transparent;
+        color: white;
+
+
+    }
+    @media (max-width: 768px) {
+        .thot {
+            font-size: 6vw;
+            margin-top: 30px;
+        }
+
+        .Click {
+            font-size: 2vw;
+            margin-left: 100px;
+            margin-top: 70px;
+        }
+
+        .overlay33{
+        height:100%;
+    }
+
+    }
+
+    @media (max-width: 480px) {
+       
+
+        .thot2 {
+            font-size: 4vw;
+            font-family: 'Times New Roman', Times, serif;
+            color: aliceblue;
+        }
+
+        .Click {
+            font-size: 5vw;
+            margin-left: 50px;
+            margin-top: 70px;
+        
+        }
+
+        .overlay33{
+        height:89%;
+    }
+
+    @media (max-width: 320px) {
+        .thot {
+            font-size: 7vw;
+        }
+
+        .Click {
+            font-size: 5vw;
+            margin-left: 50px;
+            margin-top: 70px;
+        
+        }
+
+        .overlay33{
+        height:80%;
+    }
+
+
+}
+    }
+
+</style>
+    <div id="bannerCarousel" class="carousel slide Banner66" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container d-flex justify-content-center">
+                <img src="{% static 'Images/OrpatMixer.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Orpat Iron3.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/ooo.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/JMG.jpg' %}" alt="Banner Image">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container d-flex justify-content-center">
+                <img src="{% static 'Images/Orpat Hand.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Orapt.jpg' %}" alt="Banner Image">
+                <img src="{% static 'Images/Orpat H.webp' %}" alt="Banner Image">
+                <img src="{% static 'Images/OrpatFF.jpg' %}" alt="Banner Image">
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<style>
+.Banner66 img {
+    flex: 1 1 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 200px;
+    user-select: none;
+    margin-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.Banner66 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 100px;
+}
+
+@media (max-width: 1200px) {
+    .Banner66 img {
+        flex: 1 1 calc(50% - 20px);
+        max-width: 300px;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Banner66 img {
+        flex: 1 1 calc(100% - 20px);
+        max-width: 50%;
+        margin-left: 0;
+    }
+
+    .Banner66 {
+        margin-top: 100px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 412px) {
+    .Banner66 img {
+        max-width: 30%;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>    

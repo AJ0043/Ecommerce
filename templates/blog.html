@@ -1,0 +1,357 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Our Blogs</h1>
+    <div class="blog-list">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="blog-item">
+                    <div class="blog-image-content">
+                        {% if blog.product_image %}
+                            <img src="{{ blog.product_image.url }}" alt="{{ blog.heading }}">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <div class="blog-content">
+                            <h2 class="blog-heading">{{ blog.heading }}</h2>
+                            <p class="blog-description">
+                                {{ blog.description }}
+                                <br><br>  @@@@@@@
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs found.</p>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1900px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+        color: darkgoldenrod;
+       
+    }
+
+    .page-title {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 30px;
+        color: darkgoldenrod;
+        font-weight: bold;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .blog-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+        margin: auto;
+    }
+
+    .blog-item {
+        max-width: 400px;
+        border: 6px solid darkgoldenrod;
+        border-radius: 8px;
+        overflow: hidden;
+        background: black;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        margin: auto;
+    }
+
+    .blog-item:hover {
+        transform: translateY(-30px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transition: 0.8s ease;
+    }
+
+    .blog-image-content {
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
+
+    .blog-image-content img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+        user-select: none;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .blog-content {
+        padding: 15px;
+        text-align: center;
+        
+    }
+
+    .blog-heading {
+        font-size: 20px;
+        color: darkgoldenrod;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center; /* Center the heading */
+    }
+
+
+    .blog-heading::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+    .blog-description::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+
+    .blog-description {
+        font-size: 20px;
+        color: darkgoldenrod;
+        line-height: 1.5;
+        text-align: center; /* Center the description */
+        padding: 0 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .blog-list {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .blog-heading {
+            font-size: 18px;
+        }
+
+        .blog-description {
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-heading {
+            font-size: 16px;
+        }
+
+        .blog-description {
+            font-size: 13px;
+        }
+    }
+</style>
+
+
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Electronics</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Home Appliances</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Kitchenware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags Suitcase</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>
+{% endblock %}

@@ -1,0 +1,179 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="margin-top: 100px;">
+            <h1 class="text-center font-weight-bold" style="font-family: 'Times New Roman', Times, serif; margin-top: 130px;">Top Demanding products</h1>
+            <p style="text-align: center;font-size: 20px;">We Have Top Demanding products of Our Shop enjoy and update Your Life..</p>
+            <div class="row justify-content-center px-4 py-5">
+                {% for item in Demand %}
+                <div class="col-15 col-sm-6 col-md-4 col-lg-2 col-xl-1.8 my-3 d-flex justify-content-center">
+                    <div class="card shadow-sm" style="width: 100%; max-width: 280px; user-select: none; border: ridge; border-width: 2px; padding: 10px; box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;">
+                        <a class="text-decoration-none" href="{% url 'collectionsview' item.slug %}">
+                            <div class="card-body p-0">
+                                <div class="Demand-image">
+                                    <img src="{{ item.image.url }}" alt="Arrival image" class="w-100" style="height: 270px; object-fit: cover;" />
+                                </div>
+                                <p class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 25px; color: darkgoldenrod; margin: 15px 0;">{{ item.name }}</p>
+                                <span class="float-start" style="margin-left: 10px; font-family: 'Times New Roman', Times, serif;">MRP. {{ item.MRP|stringformat:'d' }}</span>
+                                <span class="float-end" style="margin-left: 10px; font-family: 'Times New Roman', Times, serif;">SP. {{ item.SP|stringformat:'d' }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .Demand-image img {
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+        padding: 10px;
+        margin-left: 0px;
+        
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: black;
+        width: 0px;
+    }
+
+   
+   
+</style>
+
+<!-- Your content goes here -->
+
+<div class="Banner">
+    <img src="{% static 'Images/Bannn34.webp' %}" alt="Banner Image">
+    <div class="overlay"></div>    
+    <p class="thot">"If you like our products please give us feedback"</p>
+    <a class="Click" href="{% url 'Feedbacks' %}">FEEDBACK</a>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Explora&family=Lora:ital,wght@0,400..700;1,400..700&family=Satisfy&display=swap');
+    
+    .Banner {
+        position: relative;
+        text-align: center;
+        color: white;
+        margin-top: 200px;
+        
+    }
+
+    .Banner img {
+        width: 100%;
+        height: 500px;
+        margin-top: 100px;
+        user-select: none;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 84%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .thot, .Click {
+        position: absolute;
+        width: 80%;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .thot {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 3vw;
+    }
+
+    .Click {
+        top: 65%;
+        transform: translate(-50%, -50%);
+        font-family:'Times New Roman', Times, serif;
+        font-size: 25px;
+        margin-top: 50px;
+        text-decoration:none;
+        color: antiquewhite;
+        border: ridge;
+        border-radius:30px;
+        width: 250px;
+        padding:10px;
+        background-color: darkgoldenrod;
+        border-width: 1px;
+        
+    }
+    .Click:hover{
+        background-color: transparent;
+        color: white;
+
+
+    }
+    @media (max-width: 768px) {
+        .thot {
+            font-size: 6vw;
+            margin-top: 30px;
+        }
+
+        .Click {
+            font-size: 2vw;
+            margin-left: 100px;
+            margin-top: 70px;
+        }
+
+        .overlay{
+        height:80%;
+    }
+
+    }
+
+    @media (max-width: 480px) {
+        .thot {
+            font-size: 7vw;
+        }
+
+        .Click {
+            font-size: 5vw;
+            margin-left: 50px;
+            margin-top: 70px;
+        
+        }
+
+        .overlay{
+        height:80%;
+    }
+
+    @media (max-width: 320px) {
+        .thot {
+            font-size: 7vw;
+        }
+
+        .Click {
+            font-size: 5vw;
+            margin-left: 50px;
+            margin-top: 70px;
+        
+        }
+
+        .overlay{
+        height:80%;
+    }
+
+
+}
+    }
+</style>

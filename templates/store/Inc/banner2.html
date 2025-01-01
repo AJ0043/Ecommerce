@@ -1,0 +1,200 @@
+{% load static %}
+<div class="webdev">
+    <div class="img-wrapper">
+        <img src="{% static 'Images/Elet.png' %}" alt="Banner Image">
+    </div>
+
+    <div class="content-wrapper">
+        <div class="contents">
+            <h2>Swastik Electronics and Furniture</h2>
+            <p>Swastik Electronics and Furniture offers a comprehensive range of high-quality electronics and stylish furniture, catering to all your home and office needs. Our products blend functionality with aesthetic appeal, ensuring both comfort and efficiency. Whether you're looking to upgrade your living space with modern appliances or seeking elegant furniture solutions, Swastik Electronics and Furniture provides exceptional customer service and competitive prices.</p>
+            <a href="{% url 'Contact' %}" class="Banner4"><span>Contact Us</span></a>
+
+        </div>
+    </div>
+</div>
+  
+
+<style>
+.webdev {
+    width: 100%;
+    max-width: 2130px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    overflow-x: hidden;
+    padding: 5rem 0;
+    margin: 0 auto;
+    margin-top: 0px;
+    background-color: Orange;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper img {
+    width: 800px;
+    height: 500px;
+    transition: transform 0.3s;
+    user-select: none;
+    margin-top: 50px;
+    margin-left: -50px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+::selection {
+    background-color: greenyellow;
+    color: black;
+}
+
+.contents {
+    margin-left: -300px;
+    text-align: center;
+}
+
+.contents h2 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: Crimson;
+}
+
+.contents p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 20px;
+    color: black;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.contents a {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 30px;
+    background-color: black;
+    color:crimson;
+    text-decoration: none;
+    font-family:serif;
+    border-radius: 25px;
+    overflow: hidden; /* Ensures overlay doesn’t extend beyond the button */
+    transition: color 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-weight: bold;
+}
+
+.contents a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start the overlay off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color:darkgoldenrod; /* Hover background color */
+    transition: transform 0.5s ease; /* Smooth slide effect */
+    z-index: 0;
+    color: black;
+    
+}
+
+.contents a:hover::before {
+    transform: translateX(100%); /* Slide in from left to right */
+    color: black;
+}   
+
+
+.contents a span {
+    position: relative;
+    z-index: 1; /* Ensures text appears above the animated background */
+}
+
+.svg-down {
+    margin-top: -10px;
+}
+
+@media (max-width: 1258px) {
+    .webdev {
+        grid-template-columns: 1fr;
+    }
+    .content-wrapper {
+        padding-left: 0;
+        text-align: center;
+    }
+    .img-wrapper img {
+        max-width: 100%;
+        margin-left: 0;
+    }
+    .contents {
+        margin-left: 0;
+    }
+    .contents h2 {
+        font-size: 70px;
+    }
+    .contents p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .img-wrapper img {
+        max-width: 450px;
+    }
+    .content-wrapper {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .contents a {
+        width: 50%;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 414px) {
+    .img-wrapper img {
+        max-width: 300px;
+    }
+    .contents h2 {
+        font-size: 50px;
+    }
+    .contents p {
+        font-size: 18px;
+        
+    }
+    .contents a {
+        width: 50%;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 397px) {
+    .img-wrapper img {
+        max-width: 300px;
+    }
+    .contents h2 {
+        font-size: 50px;
+    }
+    .contents p {
+        font-size: 18px;
+        margin-left:-40px;
+    }
+    .contents a {
+        width: 50%;
+        padding: 10px 0;
+    }
+}
+</style>
+    

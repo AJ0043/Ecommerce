@@ -1,0 +1,570 @@
+{% load static %}
+<body>
+    <!-- top navbar -->
+    <div class="top-navbar">
+        <div class="top-icons">
+        <a href="{% url 'home' %}" style="color: #1c1c50;font-size: 20px;text-decoration: none;font-family: 'Times New Roman', Times, serif;color:Orange;width:250px;padding:px;text-decoration:underline;">स्वस्तिक 卐 ट्रेडर्स</a>
+        </div>
+        
+ 
+        <div class="other-links">
+            {% if user.is_authenticated %}
+                <span style="color: #1c1c50; font-weight: bold; font-size: 18px; font-family:serif;text-decoration:underline; margin-left:0px">
+                
+                </span>
+                <button id="btn-logout"><a href="{% url 'logout' %}">Logout</a></button>
+            {% else %}
+                <button id="btn-login"><a href="{% url 'Login' %}">Login</a></button>
+                <button id="btn-signup"><a href="{% url 'Signup' %}">Signup</a></button>
+            {% endif %}
+            <!-- Wishlist Icon with Badge -->
+            <a href="{% url 'Wishlist' %}"><i class="fa-solid fa-heart" style="color:Goldenrod"></i></a>
+            <!-- Cart Icon with Badge -->
+            <a href="{% url 'Cart' %}"><i class="fa-solid fa-cart-shopping"style="color:Goldenrod"></i></a>
+        </div>
+        
+        
+    </div>
+    <!-- top navbar -->
+
+    <div class="home-section">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg" id="navbar">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="./image/logo.png" alt="" width="180px"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars" style="color:black;"></i></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2  lg-1 fs-5 ">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color: black;">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a style="color:black" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Features
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;color: Orange;border-radius: 0px;font-size: 20px;">
+                      <li><a class="dropdown-item" href="{% url 'Features' %}">Our Features</a></li>
+                      <li><a class="dropdown-item" href="{% url 'Gallery' %}">Our Gallery</a></li>
+                      <li><a class="dropdown-item" href="{% url 'Vidios' %}">Our Videos</a></li>
+                      <li><a class="dropdown-item" href="{% url 'blog_detail' %}">Our Blog</a></li>
+                      
+  
+                    </ul>
+                  </li>
+    
+           
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;border-radius: 0px;">
+                      Category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color:orange;border-radius: 0px;">
+                      <li><a class="dropdown-item" href="{% url 'collections' %}">Collections</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Electronics">Home Appliences</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/KitchenWare">Kitechen Appliences</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Washroom">Washroom Ware</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Handloom">Handlooms</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Bags">Bags and Switcase</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Plastic%20Furnioture">Moulded Plastic Furniture</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:2000/collections/Winter%20material">Winter appliences</a></li>
+                      <li><a class="dropdown-item" href="#">platicWare</a></li>
+                          
+                    </ul>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Orders
+                      {% if cart_count > 0 or wishlist_count > 0 or orders_count > 0 %}
+                          <span class="badge">{{ cart_count|add:wishlist_count|add:orders_count }}</span>
+                      {% endif %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;border-radius: 0px;">
+                        <li><a class="dropdown-item" href="{% url 'Cart' %}">Cart</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Wishlist' %}">Wishlist</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Booking' %}">My Orders</a></li>
+                    </ul>
+                </li>
+                
+                
+                  <li class="nav-item">
+                    <a style="color:black;" class="nav-link" href="{% url 'Aboutus' %}">About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      ContactUs
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color: burlywood;border-radius: 0px;">
+                        <li><a class="dropdown-item" href="{% url 'Contact' %}">Contact Now</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Feedbacks' %}">Feedback</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Login' %}">Login</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Signup' %}">Signup</a></li>
+                            
+                    </ul>
+                </li>
+
+            
+            
+                </ul>
+                <div class="Search_bar">
+                    <form class="d-flex me-5" action="{% url 'searchproduct' %}" method="POST">
+                        {% csrf_token %}
+                        <input 
+                            class="form-control me-3" 
+                            name="searchproduct" 
+                            id="SearchProduct" 
+                            type="search" 
+                            placeholder="SearchProduct"
+                            aria-label="Search" 
+                            style="background-color: black; font-size: 25px;color: darkgoldenrod;"
+                        >
+                        <button 
+                            class="btn btn-outline-success" 
+                            type="submit" 
+                            id="search-btn" 
+                            style="color: black;background:Orange;font-size:17px"
+                            
+                        >
+                            Search
+                        </button>
+                    </form>               
+                </div>                              
+            </div>
+            </div>
+          </nav>
+        <!-- navbar -->
+
+
+<style>
+body {
+    margin: 100;
+    padding: 100;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+
+#btn-logout {
+    position: relative;
+    width: 130px;
+    height: 5vh;
+    border: 2px solid Orange;
+    color: #1c1c50;
+    font-weight: bold;
+    border-radius: 30px;
+    background: Orange;
+    overflow: hidden; /* Ensures the animated overlay doesn't extend beyond the button */
+    cursor: pointer;
+    transition: color 0.5s ease; /* Smooth transition for text color */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-size:20px;
+}
+
+#btn-logout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color:black; /* Background color for hover */
+    transition: transform 0.5s ease; /* Smooth sliding effect */
+    z-index: 0;
+    border-color: #1c1c50;
+}
+
+#btn-logout:hover::before {
+    transform: translateX(100%); /* Slide background in from left to right */
+}
+
+#btn-logout:hover {
+    color: darkgoldenrod; /* Change text color on hover */
+}
+
+#btn-logout a {
+    position: relative;
+    z-index: 1; /* Ensure text appears above the animated background */
+    text-decoration: none;
+    color: black;
+    font-family: Serif;
+    transition: color 0.5s ease;
+}
+
+#btn-logout a:hover {
+    color: darkgoldenrod;
+    border-color: #1c1c50;
+}
+
+
+
+
+
+
+.top-navbar {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background-color:black; 
+
+    z-index: 1000;
+       
+}
+
+.Search_bar{
+    position: relative; /* or 'fixed' if you want it to stay at the top */
+    z-index: 1000; /* Higher than other elements on the page */
+
+}
+ #SearchProduct::placeholder {
+        color: darkgoldenrod;
+    }
+
+
+.top-icons {
+    margin-left: 45px;
+    
+}
+
+
+.other-links {
+    margin-right: 60px;
+    
+}
+
+.other-links i {
+    color: #06062c;
+    font-size: 28px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+
+}
+
+
+.other-links i:hover {
+    color: #00008b; /* Dark blue color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Common styles for buttons */
+#btn-login, #btn-signup {
+    position: relative;
+    width: 140px;
+    height: 5vh;
+    border: 2px solid orange;
+    color: #1c1c50;
+    font-weight: bold;
+    border-radius: 30px;
+    background: Orange;
+    overflow: hidden; /* Ensures the animated overlay doesn't extend beyond the button */
+    cursor: pointer;
+    transition: color 0.5s ease; /* Smooth transition for text color */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-family:Times New Roman;
+    font-size:20px;
+    margin-left:10px;
+    
+}
+
+/* Sliding background animation */
+#btn-login::before,
+#btn-signup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color:black; /* Background color for hover */
+    transition: transform 0.5s ease; /* Smooth sliding effect */
+    z-index: 0;
+}
+
+#btn-login:hover::before,
+#btn-signup:hover::before {
+    transform: translateX(100%); /* Slide background in from left to right */
+}
+
+#btn-login:hover,
+#btn-signup:hover {
+    color: Orange; /* Change text color on hover */
+}
+
+/* Link styling for both buttons */
+#btn-login a, #btn-signup a {
+    position: relative;
+    z-index: 1; /* Ensure text appears above the animated background */
+    text-decoration: none;
+    color: #1c1c50;
+    transition: color 0.5s ease;
+    
+}
+
+#btn-login a:hover, #btn-signup a:hover {
+    color:orange;
+}
+
+.navbar-toggler.active {
+    background-color: darkgoldenrod;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+@media screen and (max-width: 1050px) {
+    .top-icons {
+        margin-left: 20px;
+    }
+
+    .top-icons i {
+        font-size: 24px;
+    }
+
+    .other-links i {
+        font-size: 24px;
+        
+    }
+
+    #btn-login, #btn-signup {
+        width: 80px;
+        height: 4vh;
+        display: none;    
+    }
+
+
+    .navbar-nav{
+        background-color:darkgoldenrod;
+        height:500px;
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap; 
+        position: relative; /* or 'fixed' if you want it to stay at the top */
+        z-index: 1000; /* Higher than other elements on the page */
+    
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+    
+    }
+
+    .navbar-brand img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .top-icons {
+        margin-left: 20px;
+    }
+
+    .top-icons i {
+        font-size: 20px;
+    }
+
+    .other-links i {
+        font-size: 20px;
+    }
+
+    #btn-login, #btn-signup {
+        width: 70px;
+        height: 4vh;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 13px;
+    }
+
+    .navbar-brand img {
+        width: 130px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .top-icons {
+        margin-left: 10px;
+        padding:5px;
+    }
+
+    .top-icons i {
+        font-size: 10px;
+    }
+
+    .other-links {
+        margin-right: 10px;
+    }
+
+    .other-links i {
+        font-size: 15px;
+    }
+
+    #btn-login, #btn-signup {
+        width: 60px;
+        height: 4vh;
+        font-size: 12px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 12px;
+    }
+
+    .navbar-brand img {
+        width: 100px;
+    }
+
+
+
+@media screen and (max-width: 350px) {
+    .top-icons {
+        margin-left: 10px;
+        font-size:10px;
+        padding:5px;
+    }
+
+    .top-icons i {
+        font-size: 18px;
+    }
+
+    .other-links {
+        margin-right: 5px;
+    }
+
+    .other-links i {
+        font-size: 18px;
+    }
+
+    #btn-login, #btn-signup {
+        width: 55px;
+        height: 3.5vh;
+        font-size: 10px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 11px;
+    }
+
+    .navbar-brand img {
+        width: 90px;
+    }
+
+    .navbar-toggler {
+        font-size: 18px;
+    }
+
+    .navbar-toggler .fa-bars {
+        font-size: 18px;
+    }
+
+    .dropdown li a {
+        font-size: 18px;
+    }
+}
+
+/* Media Queries for Samsung Galaxy S20 Ultra */
+@media screen and (max-width: 320px) {
+    .top-icons {
+        margin-left: 10px;
+    }
+
+    .top-icons i {
+        font-size: 18px;
+    }
+
+    .other-links {
+        margin-right: 5px;
+    }
+
+    .other-links i {
+        font-size: 18px;
+    }
+
+    #btn-login, #btn-signup {
+        width: 55px;
+        height: 3.5vh;
+        font-size: 10px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 11px;
+    }
+
+    .navbar-brand img {
+        width: 90px;
+    }
+
+    .navbar-toggler {
+        font-size: 18px;
+    }
+
+    .navbar-toggler .fa-bars {
+        font-size: 18px;
+    }
+
+    .dropdown li a {
+        font-size: 18px;
+    }
+}
+
+/* home section */
+
+
+
+
+
+
+}
+
+/* home section */
+
+
+/* navbar */
+#navbar {
+    background-color:orange;
+    font-size: 15px;
+    font-family: 'Roboto Slab', serif;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    height:70px;       
+}
+
+#navbar .nav-link {
+    color:black;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: 0.5s ease;
+    font-size: 23px;
+    margin-top: 10px;
+    border-radius: 0px;
+
+}
+
+#navbar .nav-link:hover {
+    color:black;
+    border-radius: 5px;
+}
+
+.dropdown li a {
+    color:orange;
+    font-size: 20px;
+   
+}
+
+.dropdown li a:hover {
+    color:black;
+    font-size: 20px;
+    background: orange;
+}
+
+
+
+#search-btn {
+    color: white;
+    border: 1px solid white;
+}
+
+#search-btn:hover {
+    background-color: #1c1c50;
+}
+
+</style>

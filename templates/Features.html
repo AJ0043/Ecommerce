@@ -1,0 +1,1377 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="Banner">
+    <h1>Our Features</h1>
+    <img src="{% static 'Images/swas.png' %}" alt="Banner Image">
+    <p>Swastik Electronics and Furniture is your premier destination for high-quality electronics and stylish furniture, combining modern technology with elegant design to enhance your living space. Our extensive range of products includes cutting-edge electronics that bring convenience and efficiency to your daily life, as well as exquisitely crafted furniture that adds both comfort and sophistication to your home.</p>
+    <a href="#" class="Banner4"><span>Read More</span></a>
+
+</div>
+<div class="codepen-wrapper">
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/We.png' %}" alt="Banner Image">
+                <p>We are For You</p>
+            </div>
+            <div class="page__2">
+                <p>Our dedicated team is committed to providing exceptional service, ensuring that every interaction is seamless.</p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/Trust.png' %}" alt="Banner Image">
+                <p>We earn Trust</p>
+            </div>
+            <div class="page__2">
+                <p>At the heart of our business lies an unwavering commitment to earning your trust.</p>
+            </div>
+        </div>
+    </div>
+    <div class="book">
+        <div class="page">
+            <div class="page__1">
+                <img src="{% static 'Images/15tttt.jpg' %}" alt="Banner Image">
+                <p>We are 15 Years Old</p>
+            </div>
+            <div class="page__2">
+                <p>With 15 years of experience, we have established a legacy of excellence and reliability.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+<style>
+.Banner {
+    text-align: center;
+    padding: 20px;
+}
+
+.Banner h1 {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px 0;
+    font-size: 2.5em;
+    color : Orange;
+        
+}
+
+.Banner img {
+    width: 25%;
+    height: 350px;
+    margin: 20px 0;
+    user-select: none;
+    border-radius:350px; 
+}
+
+.Banner p {
+    font-size: 1.3em;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.Banner a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight:bold;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+    
+}
+
+.Banner a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner a:hover {
+    color: darkgoldenrod; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+
+.Banner h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner span::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.codepen-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 20px;
+}
+
+.book {
+    flex: 1 1 calc(20.333% - 40px);
+    max-width: calc(20.333% - 20px);
+    box-sizing: border-box;
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 300px;
+    color: aliceblue;
+
+}
+
+.page {
+    padding: 20px;
+}
+
+.page__1 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.page__1 img::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.page__1 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.page__2 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.page__1 p, .page__2 p {
+    font-size: 1.5rem;
+    text-align: center;
+    color:darkgoldenrod;
+    font-family:Serif;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+@media (max-width: 1024px) {
+    .book {
+        flex: 1 1 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .book {
+        flex: 1 1 calc(100% - 40px);
+        max-width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: 15px;
+    }
+
+    .page__1 p, .page__2 p {
+        font-size: 0.9rem;
+    }
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Banner2">
+    <h1>We Maintain Best Quality and Brands</h1>
+    <img src="{% static 'Images/Sigma.Webp' %}" alt="Banner Image">
+    <p>We pride ourselves on offering the finest quality electronics and furniture. Each product in our collection is meticulously selected to ensure it meets our high standards of durability and performance. We partner with renowned brands to bring you the latest innovations and timeless designs. Whether you're upgrading your home electronics or furnishing your space, our curated selection guarantees reliability and style. Experience exceptional craftsmanship and unparalleled quality with every purchase. Trust [Swastik Electronics & Funiture] for the best in electronics and furniture.</p>
+    <a href="{% url 'Companies' %}" class="Banner2"><span>Read More</span></a>
+
+</div>
+
+<style>
+.Banner2 {
+    margin-top: 650px;
+    padding: 20px;
+    text-align: center;
+}
+
+.Banner2 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-decoration:underline;
+    color:Orange;
+}
+
+.Banner2 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner2 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.Banner2 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner2 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner2 span::selection {
+    background: black; /* Background color for selected text */
+    color: Orange; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+@media (min-width: 768px) {
+    .Banner2 img {
+        margin-top: 50px;
+    }
+
+    .Banner2 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+}
+
+.Banner2 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    font-weight:bold;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner2 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+}
+
+.Banner2 a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner2 a:hover {
+    color: darkgoldenrod; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner2 a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Banner3">
+    <h1>We Earn Trust</h1>
+    <img src="{% static 'Images/Earn.png' %}" alt="Banner Image">
+    <p>We pride ourselves on offering the finest quality electronics and furniture. Each product in our collection is meticulously selected to ensure it meets our high standards of durability and performance. We partner with renowned brands to bring you the latest innovations and timeless designs. Whether you're upgrading your home electronics or furnishing your space, our curated selection guarantees reliability and style. Experience exceptional craftsmanship and unparalleled quality with every purchase. Trust [Your Company Name] for the best in electronics and furniture.</p>
+</div>
+
+<style>
+.Banner3 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.Banner3 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:Orange;
+    text-decoration:Underline;
+
+}
+
+.Banner3 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner3 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.Banner3 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner3 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner3 span::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+
+@media (min-width: 768px) {
+    .Banner3 img {
+        margin-top: 50px;
+    }
+
+    .Banner3 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Banner4">
+    <h1>We are Since 15 years In  the market</h1>
+    <img src="{% static 'Images/Market.jpg' %}" alt="Banner Image">
+    <p>we have proudly served the market with unwavering commitment and excellence. Our journey began ten years ago with a vision to provide top-notch products and services, and since then, we have consistently evolved to meet the dynamic needs of our customers. Over the years, we have built a reputation for quality, reliability, and innovation, becoming a trusted name in our industry. Our decade-long experience reflects our dedication to customer satisfaction and our ability to adapt to changing market trends. We are grateful for the trust our customers have placed in us and look forward to continuing this legacy of excellence for many more years to come.</p>
+    <a href="{% url 'Contact' %}" class="Banner4"><span>Contact Us</span></a>
+
+</div>
+
+<style>
+.Banner4 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+.Banner4 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    color:Orange;
+}
+
+.Banner4 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner4 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+}
+.Banner4 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight:bold;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner4 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+}
+
+.Banner4 a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner4 a:hover {
+    color: Orange; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner4 a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+
+.Banner4 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner4 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner4 span::selection {
+    background: black; /* Background color for selected text */
+    color:Orange; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+
+
+@media (min-width: 768px) {
+    .Banner4 img {
+        margin-top: 50px;
+    }
+
+    .Banner4 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+
+
+
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Banner5">
+    <h1>We Deal more than 20+ Companies </h1>
+    <img shadow src="{% static 'Images/Elect 4.webp' %}" alt="Banner Image">
+    <p>Swastik Traders proudly partners with over 20 renowned companies, bringing a diverse range of high-quality products to our customers. Our showroom offers an extensive selection, ensuring that clients find precisely what they need under one roof. At Swastik Traders, we are committed to maintaining the highest standards of service and quality, backed by trusted brands in the industry. Our longstanding relationships with top companies allow us to provide our customers with a wide variety of electronics, furniture, and more, all at competitive prices. Visit Swastik Traders to experience excellence and variety like never before.</p>
+    <a href="{% url 'Companies' %}" class="Banner4"><span>Read More</span></a>
+
+</div>
+
+<style>
+.Banner5 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+.Banner5 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: Orange;
+    text-decoration:underline;
+}
+
+.Banner5 img {
+    width: 300px;
+    height: 250px;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner5 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+    
+}
+.Banner5 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight:bold;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner5 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+}
+
+.Banner5 a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner5 a:hover {
+    color: Orange; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner5 a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+
+
+
+.Banner5 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner5 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner5 a::selection {
+    background:black; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+@media (min-width: 768px) {
+    .Banner5 img {
+        margin-top: 50px;
+    }
+
+    .Banner5 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+
+
+
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<div class="Banner7">
+    <h1>We Achieved 2500+ Cumstomers</h1>
+    <img src="{% static 'Images/Cust.gif' %}" alt="Banner Image">
+    <p>Swastik Electronics and Furniture is proud to have served over 2,500 satisfied customers with dedication and commitment. As a trusted provider of high-quality electronics and furniture, we focus on delivering products that blend style, functionality, and durability. Whether you're upgrading your home or enhancing your office space, our extensive</p>
+</div>
+
+<style>
+.Banner7 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.Banner7 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:Orange;
+    text-decoration:Underline;
+
+}
+
+.Banner7 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner7 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.Banner7 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner7 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+.Banner7 span::selection {
+    background: black; /* Background color for selected text */
+    color: Orange; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+
+@media (min-width: 768px) {
+    .Banner7 img {
+        margin-top: 50px;
+    }
+
+    .Banner7 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+}
+</style>
+
+
+<div class="Banner10">
+    <h1>We have 7 Catagory of Appliences</h1>
+    <img src="{% static 'Images/Clipart.jpg' %}" alt="Banner Image">
+    <p>Welcome to Swastik Traders, your one-stop destination for premium appliances across seven diverse categories! From cutting-edge Home Appliances to simplify your daily life, and smart Kitchen Appliances to make cooking a delight, to stylish Washroom Appliances for ultimate comfort and hygiene – we have it all. Add elegance to your living spaces with our quality Handlooms and experience a blend of functionality and style like never before. At Swastik Traders, we pride ourselves on offering reliable products that suit every budget and taste. Transform your home with appliances that bring convenience and beauty under one roof. Visit us today and explore the difference!</p>
+    <a href="{% url 'collections' %}" class="Banner4"><span>Click Me</span></a>
+
+</div>
+
+<style>
+.Banner10 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.Banner10 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:Orange;
+    text-decoration:Underline;
+
+}
+
+.Banner10 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner10 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.Banner10 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight:bold;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner10 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+}
+
+.Banner10 a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner10 a:hover {
+    color: Orange; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner10 a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+.Banner10 h1::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner10 p::selection {
+    background: orange; /* Background color for selected text */
+    color: black; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+.Banner10 span::selection {
+    background: black; /* Background color for selected text */
+    color: orange; /* Text color for selected text */
+    font-weight: bold; /* Optional: Make the selected text bold */
+}
+
+
+@media (min-width: 768px) {
+    .Banner10 img {
+        margin-top: 50px;
+    }
+
+    .Banner10 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+
+
+
+
+}
+</style>
+
+<div class="Banner10">
+    <h1>We are Improving Lifestyle</h1>
+    <img src="{% static 'Images/Clip34.jpg' %}" alt="Banner Image">
+    <p>Improving lifestyle is about making conscious choices to enhance the quality of your daily life. It includes adopting healthy habits, such as eating nutritious food, exercising regularly, and maintaining a positive mindset. It also involves optimizing your living environment with smart solutions, like energy-efficient appliances and organized spaces, to save time and reduce stress. Small, consistent changes—like prioritizing self-care, learning new skills, and embracing sustainability—can lead to a healthier, more fulfilling, and balanced life. By integrating modern tools and thoughtful practices, we can shape a lifestyle that promotes happiness, productivity, and overall well-being.</p>
+    <a href="{% url 'blog_detail' %}" class="Banner4"><span>Click Me</span></a>
+
+</div>
+
+<style>
+.Banner10 {
+    margin-top: 350px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.Banner10 h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:Orange;
+    text-decoration:Underline;
+
+}
+
+.Banner10 img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    user-select: none;
+    border-radius: 200px;
+}
+
+.Banner10 p {
+    width: 90%;
+    max-width: 900px;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.Banner10 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight:bold;
+    border-radius: 30px;
+    padding: 10px 50px;
+    margin-top: 20px;
+    color: inherit;
+    background-color: Orange;
+    border-width: 1px;
+    overflow: hidden; /* Ensure the water effect stays within the button */
+    transition: color 0.1s ease; /* Smooth color transition for text */
+    font-family:Times New Roman;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+/* Create the water filling effect */
+.Banner10 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from the bottom of the button */
+    left: 0;
+    width: 100%;
+    height: 0%; /* Initially set to 0% to appear as if it's empty */
+    background-color: black; /* Water color */
+    transition: height 0.7s ease; /* Animate the filling effect */
+    z-index: 0;
+}
+
+.Banner10 a:hover::before {
+    height: 100%; /* Fill the button with 'water' on hover */
+}
+
+.Banner10 a:hover {
+    color: Orange; /* Change text color to white when hovered */
+}
+
+/* Ensure text stays above the water fill */
+.Banner10 a span {
+    position: relative;
+    z-index: 1; /* Keep text above the animated background */
+}
+
+
+
+@media (min-width: 768px) {
+    .Banner10 img {
+        margin-top: 50px;
+    }
+
+    .Banner10 p {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Electronics</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Home Appliances</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Kitchenware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags Suitcase</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>
+{% endblock content %}

@@ -1,0 +1,87 @@
+
+{% load static %}
+
+{% block content %}
+
+<!-- Main Container -->
+<div class="container2 mt-5">
+    <h1 class="mb-4">Search Results for "{{ query }}"</h1>
+    
+    {% if products %}
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item">
+                    <a 
+                        href="{% url 'productview' cate_slug=product.category.slug prod_slug=product.slug %}" 
+                        class="text-decoration-none text-dark"
+                    >
+                        {{ product.name }}
+                        <img src="{{ product.Product_image.url }}" class="w-100 main-image" alt="image" style="border-color: #ccc; border-radius: 0px; width: 150px; height: 150px; margin-top: 10px;margin-left:100px">
+              
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">No products found.</p>
+    {% endif %}
+</div>
+
+<!-- Optional Custom Styles -->
+<style>
+/* Main container */
+.container2 {
+    max-width: 800px;
+    margin: 50px auto; /* Adjusted margin to provide space without pushing too far down */
+    padding: 100px; /* Add padding to ensure content doesn't overlap with the fixed navbar */
+    position: relative;
+    height: 700px;
+    border-radius: 20px;
+}
+
+/* Heading styles */
+.container2 h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: crimson;
+    
+}
+
+/* List group item styles */
+.list-group-item {
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color:;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef;
+}
+
+/* Text styles */
+.text-dark {
+    color: Red;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.text-muted {
+    text-align: center;
+    color: #6c757d;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:0; /* Ensure the navbar is on top of other content */
+}
+</style>
+
+
+
+
+{% endblock content %}
