@@ -1,0 +1,68 @@
+{% load static %}
+<div class="Password">
+    <img class="face" src="{% static 'Images/well.gif' %}">
+    <h2><span class="typing">Thank you for Contact Us!!!</span></h2>
+    <p style="font-size:30px;font-family:serif;">We will Contact to you soon....</p>
+</div>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 250, 255);
+}
+
+.Password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.face {
+    width: 80%;
+    max-width: 400px;
+    height: 300px;
+    user-select: none;
+
+}
+
+h2 {
+    margin: 20px 0 0;
+    font-size: 5vw;
+    width: 100%;
+    font-family: Satisfy;
+    user-select: none;
+    color: green;
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 3vw;
+    white-space: nowrap;
+    border-right: 3px solid;
+    animation: typing 4s steps(20), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+@media (min-width: 600px) {
+    h2 {
+        font-size: 5vw;
+    }
+}
+</style>

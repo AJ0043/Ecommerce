@@ -145,9 +145,7 @@ def Contactus(request):
         mail.send()
 
         # Send WhatsApp Notification to Admin
-        whatsapp_status, whatsapp_response = send_whatsapp_message(message_content)
-        if whatsapp_status != 201:
-            print("Failed to send WhatsApp message:", whatsapp_response)
+       
         
         return redirect('success')  # Redirect to success page
     
