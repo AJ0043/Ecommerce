@@ -1,0 +1,636 @@
+{% extends 'Store/layouts/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .container-custom {
+        margin-left: 80px;
+            
+    }
+
+    .form-label {
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+        
+    }
+
+    .form-control-custom, .form-textarea {
+        font-size: 23px;
+        background-color: beige;
+    }
+
+    .form-textarea {
+        height: 200px;
+    }
+
+    .card-title-custom {
+        font-size: 27px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .order-summary-table th, .order-summary-table td {
+        font-size: 23px;
+    }
+
+    .order-summary-table td img {
+        height: 50px;
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .order-summary-grand-total {
+        font-size: 23px;
+    }
+
+    .btn-place-order {
+        height: 50px;
+        font-size: 23px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        .container-custom {
+            margin-left: 40px;
+        }
+
+        .card-title-custom {
+            font-size: 24px;
+        }
+
+        .form-control-custom, .form-textarea, .order-summary-table th, .order-summary-table td, .order-summary-grand-total, .btn-place-order {
+            font-size: 21px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .container-custom {
+            margin-left: 20px;
+        }
+
+        .card-title-custom {
+            font-size: 22px;
+        }
+
+        .form-control-custom, .form-textarea, .order-summary-table th, .order-summary-table td, .order-summary-grand-total, .btn-place-order {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container-custom {
+            margin-left: 10px;
+        }
+
+        .card-title-custom {
+            font-size: 20px;
+        }
+
+        .form-control-custom, .form-textarea, .order-summary-table th, .order-summary-table td, .order-summary-grand-total, .btn-place-order {
+            font-size: 18px;
+        }
+
+        .btn-place-order {
+            height: 45px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container-custom {
+            margin-left: 0;
+            padding: 0 10px;
+        }
+
+        .card-title-custom {
+            font-size: 18px;
+        }
+
+        .form-control-custom, .form-textarea, .order-summary-table th, .order-summary-table td, .order-summary-grand-total, .btn-place-order {
+            font-size: 16px;
+        }
+
+        .btn-place-order {
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container-custom {
+            padding: 0 5px;
+        }
+
+        .card-title-custom {
+            font-size: 16px;
+        }
+
+        .form-control-custom, .form-textarea, .order-summary-table th, .order-summary-table td, .order-summary-grand-total, .btn-place-order {
+            font-size: 14px;
+        }
+
+        .btn-place-order {
+            height: 35px;
+        }
+    }
+</style>
+
+<div class="container-custom mt-3">
+    <form action="{% url 'placeorder' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <!-- Basic Details Section -->
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body shadow black" style="background-color:darkgoldenrod;">
+                        <h2 class="card-title-custom" style="color:darkgoldenrod;border:groove;background-color: black;margin-left: 10px;border: none;height: 50px;border-radius: 6px;padding: 10px;">Basic Details</h2>
+                        <p style="font-size: 20px;margin-left: 20px;">Fill the Form regarding to Consumer address or informations</p>
+                        <hr style="color: black;height: 7px;">
+                        <div class="row">
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">First Name</label>
+                                <input type="text" required value="{{ request.user.first_name }}" class="form-control form-control-custom" name="Fname" placeholder="Enter first name">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" required value="{{ request.user.last_name }}" class="form-control form-control-custom" name="Lname" placeholder="Enter Last name">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">Email</label>
+                                <input type="email" required value="{{ request.user.email }}" class="form-control form-control-custom" name="Email" placeholder="Enter Email">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">Phone</label>
+                                <input type="text" required value="{{ Userprofile.phone }}" class="form-control form-control-custom" name="Phone" placeholder="Enter Phone">
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <label class="form-label">Address</label>
+                                <textarea required class="form-control form-textarea" name="Address" placeholder="Enter Address">{{ Userprofile.address }}</textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">City</label>
+                                <input type="text" required value="{{ Userprofile.city }}" class="form-control form-control-custom" name="City" placeholder="Enter City">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">State</label>
+                                <input type="text" required value="{{ Userprofile.state }}" class="form-control form-control-custom" name="State" placeholder="Enter State">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">Country</label>
+                                <input type="text" required value="{{ Userprofile.country }}" class="form-control form-control-custom" name="Country" placeholder="Enter Country">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="form-label">Pincode</label>
+                                <input type="text" required value="{{ Userprofile.pincode }}" class="form-control form-control-custom" name="Pincode" placeholder="Enter Pincode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body"style="background-color:black">
+                        <h3 class="card-title-custom" style="color:goldenrod;">Order Summary</h3>
+                        <hr style="color:yellow;padding: 10px;border-width: 5px;">
+                        {% if cartitems %}
+                            <table class="table table-striped table-bordered order-summary-table">
+                                <thead">
+                                    <tr>
+                                        <th style="background-color: bisque;font-family: 'Times New Roman', Times, serif;">Name</th>
+                                        <th style="background-color: bisque;font-family: 'Times New Roman', Times, serif;">Qty</th>
+                                        <th style="background-color: bisque;font-family: 'Times New Roman', Times, serif;">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cartitems %}
+                                        <tr>
+                                            <td>
+                                                <img src="{{ item.product.Product_image.url }}" />
+                                                {{ item.product.name }}
+                                            </td>
+                                            <td>{{ item.product_qty }}</td>
+                                            <td>{{ item.product.Selling_Price }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <h6 class="order-summary-grand-total" style="color: aliceblue;font-family: 'Times New Roman', Times, serif;">Grand Total
+                                <span class="float-end">Rs {{ total_price }}</span>
+                            </h6> 
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-success w-100 btn-place-order">COD | Place Order</button>
+                                <button type="button" class="btn btn-warning PaywithRazorpay w-100 btn-place-order mt-2">Pay With Razorpay</button>
+                            </div>
+                        {% else %}
+                            <h4 style="color: darkgoldenrod;">Your Cart is Empty</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+$(document).ready(function () {
+    $('.PaywithRazorpay').click(function (e) { 
+        e.preventDefault();
+        
+        var Fname = $("[name='Fname']").val();
+        var Lname = $("[name='Lname']").val();
+        var Email = $("[name='Email']").val();
+        var Phone = $("[name='Phone']").val();
+        var Address = $("[name='Address']").val();
+        var City = $("[name='City']").val();
+        var State = $("[name='State']").val();
+        var Country = $("[name='Country']").val();
+        var Pincode = $("[name='Pincode']").val();
+
+        // Basic validation
+        if (Fname == "" || Lname == "" || Email == "" || Phone == "" || Address == "" || City == "" || State == "" || Country == "" || Pincode == "") {
+            alert("All fields are required");
+            return false;
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "/proceed-to-pay/",  // This is the endpoint for Razorpay payment
+                success: function (response) {
+                    console.log(response);
+
+                    var options = {
+                        "key": "rzp_test_uQxYwKDDPACuYG", // Replace with your Razorpay Key ID
+                        "amount": response.total_price * 100, // Amount in paise
+                        "currency": "INR",
+                        "name": "Swastik Traders",
+                        "description": "Thank you For Purchasing ",
+                        "image": "", // Replace with your logo URL
+                        "handler": function (paymentResponse) {
+                            alert("Payment ID: " + paymentResponse.razorpay_payment_id);
+
+                            // Send request to update the order status and clear the cart after successful payment
+                            $.ajax({
+                                type: "POST",
+                                url: "{% url 'clear_cart' %}",  // Server-side endpoint to clear cart
+                                data: {
+                                    "payment_id": paymentResponse.razorpay_payment_id,
+                                    "order_status": "completed",
+                                    "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']").val()
+                                },
+                                success: function (clearCartResponse) {
+                                    // Empty the order summary table on success
+                                    alert("Order has been successfully placed!");
+                                    $(".order-summary-table tbody").empty();
+                                    $(".order-summary-grand-total").text("Grand Total: Rs 0");
+                                },
+                                error: function (xhr, status, error) {
+                                    console.error("Error clearing cart: ", error);
+                                }
+                            });
+                        },
+                        "prefill": {
+                            "name": Fname + " " + Lname,
+                            "email": Email,
+                            "contact": Phone
+                        },
+                        "notes": {
+                            "address": Address + ", " + City + ", " + State + ", " + Country + " - " + Pincode
+                        },
+                        "theme": {
+                            "color": "#3399cc"
+                        }
+                    };
+
+                    var rzp1 = new Razorpay(options);
+
+                    rzp1.on('payment.failed', function (response) {
+                        alert("Payment failed: " + response.error.description);
+                    });
+
+                    rzp1.open();
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error: " + error);
+                    alert("Something went wrong, please try again later.");
+                }
+            });
+        }
+    });
+});
+</script>
+
+{% block scripts %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer-col about">
+        <h4>About us</h4>
+        <p style="color: Orange;font-size: 20px;font-family: 'Times New Roman', Times, serif;">Established in 2010 by the dynamic duo of Mr. Yogendra Kumar Jain and his son Lokesh Jain, our firm has been a trusted name in the electronics and furniture industry for over 15 years. What began as a humble venture in electronics has flourished into a comprehensive enterprise, expanding to include furniture, kitchen appliances, and More.</p>
+    </div>
+    <div class="footer-col services">
+        <h4 style="margin-left: 120px;font-family: 'Times New Roman', Times, serif;font-size: 25px;">Catego</h4>
+        <ul style="margin-left: 120px;">
+            <li><a href="http://127.0.0.1:2000/collections/Electronics">Home Appliences</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/KitchenWare">Kitchen Appliences</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Washroom">Washroom Ware</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Handloom">Handlooms</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Bags">Bags and Switcase</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Plastic%20Furnioture">Moulded Furniture</a></li>
+            <li><a href="http://127.0.0.1:2000/collections/Glass">Glasses and Mugs</a></li>
+        </ul>
+    </div>
+    <div class="footer-col company">
+        <h4 style="margin-left: 50px;">Company</h4>
+        <ul style="margin-left: 50px;">
+            <li><a href="{% url 'Aboutus' %}">About</a></li>
+            <li><a href="http://127.0.0.1:1000/contact/">Legal</a></li>
+            <li><a href="{% url 'Contact' %}">Contact us</a></li>
+            <li><a href="{% url 'Feedbacks' %}">Feedback</a></li>
+            <li><a href="{% url 'Complaint' %}">Product Complaints</a></li>
+           
+        </ul>
+    </div>
+    <div class="footer-col follow">
+        <h4>Follow us</h4>
+        <div class="links">
+            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/anveshjain1635/"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <p style="font-size: 20px;color:Orange;font-family: 'Times New Roman', Times, serif;">Copyright © 2024 SwastikTraders. All Rights Reserved.</p>
+        
+    </div>
+</footer>
+
+<style>
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:black;
+    padding: 40px 5%;
+    color: black;
+    margin-top: 300px;
+    height: auto; /* Change from fixed height */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align content on smaller screens */
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(156, 47, 14);
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-col p {
+    color: Orange;
+    font-size: 20px; /* Adjusted for consistent sizing */
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the line */
+    transform: translateX(-50%);
+    bottom: -6px;
+    background-color: green;
+    height: 2px;
+    width: 90px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 23px;
+    text-transform: capitalize;
+    color: Orange;
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: "Lora";
+}
+
+ul li a:hover {
+    color: Orange;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    color: black;
+    background-color: Orange;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: orange;
+    background-color: black;
+    box-shadow: 5px 5px 0px orange;
+}
+
+.line {
+    text-align: center;
+    font-size: 20px; /* Ensure readability */
+    color: orange;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        display: none;
+    }
+}
+
+@media (max-width: 555px) {
+    footer {
+        padding: 20px 2%;
+        height: auto; /* Adjust for smaller screens */
+    }
+
+    .footer-col h4 {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .footer-col p {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 15px;
+    }
+
+    .line {
+        font-size: 12px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<style>
+    /* Style for Alertify notifications */
+    .ajs-message.ajs-success {
+    border-radius: 50px; /* Add border-radius */
+    /* Add border */
+    background-color: red; /* Change background color to red */
+    color: black; /* Change text color to white */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;    
+
+}
+</style>
+{% endblock content %}

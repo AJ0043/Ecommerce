@@ -9,7 +9,6 @@
         height: auto;
         margin: 30px 0;
         font-size: 20px;
-        border: ridge;
         padding: 20px;
         border-radius: 20px;
         border-color: black;
@@ -60,7 +59,7 @@
             <div class="row">
                 {% for item in products %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-                    <div class="R" style="border-radius: 1px; border-width: 0.1px;">
+                    <div class="R" style="border-radius:1px; border-width: 0.1px;">
                         <a style="text-decoration: none;" href="{% url 'productview' item.category.slug item.slug %}">
                             <div class="card-body">
                                 <div class="category-image">

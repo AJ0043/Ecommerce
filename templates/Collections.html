@@ -12,7 +12,7 @@
                         <a style="text-decoration: none;" href="{% url 'collectionsview' item.slug %}">
                             <div class="card-body p-0">
                                 <div class="category-image">
-                                    <img src="{{ item.image.url }}" alt="category image" class="w-100" style="height: 250px; object-fit: cover;" />
+                                    <img src="{{ item.image.url }}" alt="category image" class="w-100" style="height: 200px;width:200px; object-fit: cover;" />
                                 </div>
                                 <p style="font-family: 'Times New Roman', Times, serif; text-align: center; font-size: 25px; color:White; margin: 15px 0;text-transform: uppercase;">{{ item.name }}</p>
                             </div>
@@ -47,6 +47,7 @@
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         margin-top:10px;
+           
         
         
     }
