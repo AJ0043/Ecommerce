@@ -17,10 +17,10 @@
                             {% if product.Tag %}
                                 <label class="product-view-tag" style="font-size: 16px; font-weight: bold; border-radius: 2px; padding: 2px; text-align: center; background-color: green; color: white; margin-top: 10px; font-weight: 800; font-family: 'Times New Roman', Times, serif; width: 70px;color:darkgoldenrod">{{ product.Tag }}</label>
                             {% endif %}
-                            <img src="{{ product.Product_image.url }}" class="w-100 main-image" alt="image" style="border-color: #ccc; border-radius: 0px; width: 100%; height: auto; margin-top: 10px;">
+                            <img src="{{ product.Product_image.url }}" class="w-100 main-image" alt="image" style="border-color: #ccc; border-radius: 20px; width: 80%; height: auto; margin-top: 10px;border:ridge;border-width:2px;border-color:Orange">
                             {% for image in product.Product.all %}
                                 <a href="#" class="thumbnail-link" data-image-url="{{ image.image.url }}" style="margin-left: 10px;">
-                                    <img src="{{ image.image.url }}" class="thumbnail-image shadow" width="70" height="70" alt="image" style="border-style: ridge; border-width: 2px; border-color: rgb(34, 0, 158); margin-top: 10px; border-radius: 5px;">
+                                    <img src="{{ image.image.url }}" class="thumbnail-image shadow" width="70" height="70" alt="image" style="border-style: ridge; border-width: 2px; border-color: rgb(199, 153, 16); margin-top: 10px; border-radius: 30px;">
                                 </a>
                             {% endfor %}
                         </div>

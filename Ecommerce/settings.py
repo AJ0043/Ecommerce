@@ -13,7 +13,6 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-b+xix_v=ryij_d
 DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(',')
-#ALLOWED_HOSTS = ['.versal.app', '.now.sh']
 
 # Application definition
 INSTALLED_APPS = [
@@ -28,7 +27,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Fixed capitalization
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,6 +54,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Ecommerce.wsgi.application'
+
 
 # Database
 DATABASES = {
@@ -124,3 +123,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = '/tmp/app-messages'  # Change to your desired path
         
+
+
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='fallback-secret-key')
+DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)     
+ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(',')
+
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
