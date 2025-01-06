@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html lang="en-us" dir="ltr">
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" href="/static/admin/css/base.css">
+
+  <link rel="stylesheet" href="/static/admin/css/dark_mode.css">
+  <script src="/static/admin/js/theme.js"></script>
+
+
+  <link rel="stylesheet" href="/static/admin/css/nav_sidebar.css">
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+<link rel="stylesheet" href="/static/admin/css/dashboard.css">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+<a href="#content-start" class="skip-to-content-link">Skip to main content</a>
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    
+      <header id="header">
+        <div id="branding">
+        
+<div id="site-name"><a href="/admin/">Django administration</a></div>
+
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong>Anvesh jain</strong>.
+            
+            
+                
+                    <a href="/">View site</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Change password</a> /
+                
+                <form id="logout-form" method="post" action="/admin/logout/">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="lVXQKb0CXULZ1XdxO9VPnzpbQTwRFuHUtELjGsGwi4SxGX6Hm4w6fthzqmNiFkgW">
+                    <button type="submit">Log out</button>
+                </form>
+                
+<button class="theme-toggle">
+  <span class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</span>
+  <span class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</span>
+  <span class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</span>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+            
+        </div>
+        
+        
+        
+      </header>
+    
+    <!-- END Header -->
+    
+    
+
+    <div class="main" id="main">
+      
+        
+      
+      <main id="content-start" class="content" tabindex="-1">
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="colMS">
+          
+          <h1>Site administration</h1>
+          
+          
+<div id="content-main">
+  
+
+
+  
+    <div class="app-auth module">
+      <table>
+        <caption>
+          <a href="/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+        </caption>
+        
+          
+            <tr class="model-group">
+              <th scope="row" id="auth-group">
+                
+                  <a href="/admin/auth/group/">Groups</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/auth/group/add/" class="addlink" aria-describedby="auth-group">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/auth/group/" class="changelink" aria-describedby="auth-group">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-user">
+              <th scope="row" id="auth-user">
+                
+                  <a href="/admin/auth/user/">Users</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/auth/user/add/" class="addlink" aria-describedby="auth-user">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/auth/user/" class="changelink" aria-describedby="auth-user">Change</a></td>
+                
+              
+            </tr>
+          
+        
+      </table>
+    </div>
+  
+    <div class="app-Ecomapp module">
+      <table>
+        <caption>
+          <a href="/admin/Ecomapp/" class="section" title="Models in the Ecomapp application">Ecomapp</a>
+        </caption>
+        
+          
+            <tr class="model-arrival">
+              <th scope="row" id="Ecomapp-arrival">
+                
+                  <a href="/admin/Ecomapp/arrival/">Arrivals</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/arrival/add/" class="addlink" aria-describedby="Ecomapp-arrival">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/arrival/" class="changelink" aria-describedby="Ecomapp-arrival">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-blog">
+              <th scope="row" id="Ecomapp-blog">
+                
+                  <a href="/admin/Ecomapp/blog/">Blogs</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/blog/add/" class="addlink" aria-describedby="Ecomapp-blog">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/blog/" class="changelink" aria-describedby="Ecomapp-blog">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-brands">
+              <th scope="row" id="Ecomapp-brands">
+                
+                  <a href="/admin/Ecomapp/brands/">Brandss</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/brands/add/" class="addlink" aria-describedby="Ecomapp-brands">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/brands/" class="changelink" aria-describedby="Ecomapp-brands">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-cart">
+              <th scope="row" id="Ecomapp-cart">
+                
+                  <a href="/admin/Ecomapp/cart/">Carts</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/cart/add/" class="addlink" aria-describedby="Ecomapp-cart">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/cart/" class="changelink" aria-describedby="Ecomapp-cart">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-category1">
+              <th scope="row" id="Ecomapp-category1">
+                
+                  <a href="/admin/Ecomapp/category1/">Category1s</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/category1/add/" class="addlink" aria-describedby="Ecomapp-category1">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/category1/" class="changelink" aria-describedby="Ecomapp-category1">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-category">
+              <th scope="row" id="Ecomapp-category">
+                
+                  <a href="/admin/Ecomapp/category/">Categorys</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/category/add/" class="addlink" aria-describedby="Ecomapp-category">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/category/" class="changelink" aria-describedby="Ecomapp-category">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-complaint">
+              <th scope="row" id="Ecomapp-complaint">
+                
+                  <a href="/admin/Ecomapp/complaint/">Complaints</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/complaint/add/" class="addlink" aria-describedby="Ecomapp-complaint">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/complaint/" class="changelink" aria-describedby="Ecomapp-complaint">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-contact">
+              <th scope="row" id="Ecomapp-contact">
+                
+                  <a href="/admin/Ecomapp/contact/">Contacts</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/contact/add/" class="addlink" aria-describedby="Ecomapp-contact">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/contact/" class="changelink" aria-describedby="Ecomapp-contact">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-delership">
+              <th scope="row" id="Ecomapp-delership">
+                
+                  <a href="/admin/Ecomapp/delership/">Delerships</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/delership/add/" class="addlink" aria-describedby="Ecomapp-delership">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/delership/" class="changelink" aria-describedby="Ecomapp-delership">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-demand">
+              <th scope="row" id="Ecomapp-demand">
+                
+                  <a href="/admin/Ecomapp/demand/">Demands</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/demand/add/" class="addlink" aria-describedby="Ecomapp-demand">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/demand/" class="changelink" aria-describedby="Ecomapp-demand">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-feedback">
+              <th scope="row" id="Ecomapp-feedback">
+                
+                  <a href="/admin/Ecomapp/feedback/">Feedbacks</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/feedback/add/" class="addlink" aria-describedby="Ecomapp-feedback">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/feedback/" class="changelink" aria-describedby="Ecomapp-feedback">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-logo">
+              <th scope="row" id="Ecomapp-logo">
+                
+                  <a href="/admin/Ecomapp/logo/">Logos</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/logo/add/" class="addlink" aria-describedby="Ecomapp-logo">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/logo/" class="changelink" aria-describedby="Ecomapp-logo">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-newproducts">
+              <th scope="row" id="Ecomapp-newproducts">
+                
+                  <a href="/admin/Ecomapp/newproducts/">Newproductss</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/newproducts/add/" class="addlink" aria-describedby="Ecomapp-newproducts">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/newproducts/" class="changelink" aria-describedby="Ecomapp-newproducts">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-ordertracker">
+              <th scope="row" id="Ecomapp-ordertracker">
+                
+                  <a href="/admin/Ecomapp/ordertracker/">Order trackers</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/ordertracker/add/" class="addlink" aria-describedby="Ecomapp-ordertracker">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/ordertracker/" class="changelink" aria-describedby="Ecomapp-ordertracker">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-orderhistory">
+              <th scope="row" id="Ecomapp-orderhistory">
+                
+                  <a href="/admin/Ecomapp/orderhistory/">Orderhistorys</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/orderhistory/add/" class="addlink" aria-describedby="Ecomapp-orderhistory">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/orderhistory/" class="changelink" aria-describedby="Ecomapp-orderhistory">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-orderitem">
+              <th scope="row" id="Ecomapp-orderitem">
+                
+                  <a href="/admin/Ecomapp/orderitem/">Orderitems</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/orderitem/add/" class="addlink" aria-describedby="Ecomapp-orderitem">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/orderitem/" class="changelink" aria-describedby="Ecomapp-orderitem">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-order">
+              <th scope="row" id="Ecomapp-order">
+                
+                  <a href="/admin/Ecomapp/order/">Orders</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/order/add/" class="addlink" aria-describedby="Ecomapp-order">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/order/" class="changelink" aria-describedby="Ecomapp-order">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-photo">
+              <th scope="row" id="Ecomapp-photo">
+                
+                  <a href="/admin/Ecomapp/photo/">Photos</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/photo/add/" class="addlink" aria-describedby="Ecomapp-photo">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/photo/" class="changelink" aria-describedby="Ecomapp-photo">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-product">
+              <th scope="row" id="Ecomapp-product">
+                
+                  <a href="/admin/Ecomapp/product/">Products</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/product/add/" class="addlink" aria-describedby="Ecomapp-product">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/product/" class="changelink" aria-describedby="Ecomapp-product">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-profile">
+              <th scope="row" id="Ecomapp-profile">
+                
+                  <a href="/admin/Ecomapp/profile/">Profiles</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/profile/add/" class="addlink" aria-describedby="Ecomapp-profile">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/profile/" class="changelink" aria-describedby="Ecomapp-profile">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-subcategory">
+              <th scope="row" id="Ecomapp-subcategory">
+                
+                  <a href="/admin/Ecomapp/subcategory/">Sub categorys</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/subcategory/add/" class="addlink" aria-describedby="Ecomapp-subcategory">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/subcategory/" class="changelink" aria-describedby="Ecomapp-subcategory">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-video">
+              <th scope="row" id="Ecomapp-video">
+                
+                  <a href="/admin/Ecomapp/video/">Videos</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/video/add/" class="addlink" aria-describedby="Ecomapp-video">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/video/" class="changelink" aria-describedby="Ecomapp-video">Change</a></td>
+                
+              
+            </tr>
+          
+        
+          
+            <tr class="model-wishlist">
+              <th scope="row" id="Ecomapp-wishlist">
+                
+                  <a href="/admin/Ecomapp/wishlist/">Wishlists</a>
+                
+              </th>
+
+              
+                <td><a href="/admin/Ecomapp/wishlist/add/" class="addlink" aria-describedby="Ecomapp-wishlist">Add</a></td>
+              
+
+              
+                
+                  <td><a href="/admin/Ecomapp/wishlist/" class="changelink" aria-describedby="Ecomapp-wishlist">Change</a></td>
+                
+              
+            </tr>
+          
+        
+      </table>
+    </div>
+  
+
+
+</div>
+
+          
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>Recent actions</h2>
+        <h3>My actions</h3>
+            
+            
+            
+            <ul class="actionlist">
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/8/change/">Bads and Suitcase</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/product/1/change/">Fridge</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Product</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/7/change/">Bags</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/6/change/">Bathroomware</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="deletelink">
+                <span class="visually-hidden">Deleted:</span>
+                
+                    Handlooms
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/5/change/">Handlooms</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/4/change/">Moulded Furniture</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/3/change/">Kitchenware</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="addlink">
+                <span class="visually-hidden">Added:</span>
+                
+                    <a href="/admin/Ecomapp/category/2/change/">Home Appliences</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            <li class="changelink">
+                <span class="visually-hidden">Changed:</span>
+                
+                    <a href="/admin/Ecomapp/category/1/change/">Electrnoics</a>
+                
+                <br>
+                
+                    <span class="mini quiet">Category</span>
+                
+            </li>
+            
+            </ul>
+            
+    </div>
+</div>
+
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+      </main>
+    </div>
+    <footer id="footer"></footer>
+</div>
+<!-- END Container -->
+
+<!-- SVGs -->
+<svg xmlns="http://www.w3.org/2000/svg" class="base-svgs">
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+  <symbol viewBox="0 0 24 24" width="1rem" height="1rem" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+</svg>
+<!-- END SVGs -->
+</body>
+</html>
