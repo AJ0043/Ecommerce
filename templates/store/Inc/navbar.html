@@ -44,7 +44,7 @@
                     <a style="color:black" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Features
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;color: Orange;border-radius: 0px;font-size: 20px;">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;color: Orange;border-radius: 8px;font-size: 20px;">
                       <li><a class="dropdown-item" href="{% url 'Features' %}">Our Features</a></li>
                       <li><a class="dropdown-item" href="{% url 'Gallery' %}">Our Gallery</a></li>
                       <li><a class="dropdown-item" href="{% url 'Vidios' %}">Our Videos</a></li>
@@ -56,10 +56,10 @@
     
            
                   <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;border-radius: 0px;">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;border-radius: 20px;">
                       Category
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color:orange;border-radius: 0px;">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color:orange;border-radius: 8px;">
                       <li><a class="dropdown-item" href="{% url 'collections' %}">Collections</a></li>
                       <li><a class="dropdown-item" href="http://127.0.0.1:3000/collections/Electronics">Electronics</a></li>
                       <li><a class="dropdown-item" href="http://127.0.0.1:3000/collections/Home%20applieces">Home appliences</a></li>
@@ -79,7 +79,7 @@
                           <span class="badge">{{ cart_count|add:wishlist_count|add:orders_count }}</span>
                       {% endif %}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;border-radius: 0px;">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;border-radius: 8px;">
                         <li><a class="dropdown-item" href="{% url 'Cart' %}">Cart</a></li>
                         <li><a class="dropdown-item" href="{% url 'Wishlist' %}">Wishlist</a></li>
                         <li><a class="dropdown-item" href="{% url 'Booking' %}">My Orders</a></li>
@@ -94,11 +94,10 @@
                     <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       ContactUs
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color: burlywood;border-radius: 0px;">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;color: burlywood;border-radius-left: 20px;">
                         <li><a class="dropdown-item" href="{% url 'Contact' %}">Contact Now</a></li>
                         <li><a class="dropdown-item" href="{% url 'Feedbacks' %}">Feedback</a></li>
-                        <li><a class="dropdown-item" href="{% url 'Login' %}">Login</a></li>
-                        <li><a class="dropdown-item" href="{% url 'Signup' %}">Signup</a></li>
+                       
                             
                     </ul>
                 </li>
